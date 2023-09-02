@@ -7,11 +7,12 @@ require('dotenv').config();
 
 const PORT = process.env.PORT ;
 
-//require (./db);
+require ('./db');
 
 
 app.use(cors());
 app.use(bodyParser.json());
+app.use('/users', authRoutes);
 
 app.get('/', (req, res) => {
     res.send('Hello World! welcom to blg api')
