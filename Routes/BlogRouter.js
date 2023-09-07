@@ -6,9 +6,7 @@ const auth=require('../middlewares/auth')
 
 
 
-router.post('/create',(req,res)=>{
-console.log(req.body);
-});
+
 router.post('/blogs',getAllBlogs);
 router.post('/blogs/id',getBlogById);
 

@@ -3,23 +3,20 @@ const auth = require('../middlewares/auth');
 const Blog = require('../models/Blog');
 
 const createBlog = async (req,res)=>{
-    console.log("-----------")
-    console.log(req.body);
-    console.log(req.header);
-    console.log("-----------")
-    // const owner =req.user.id;
-    // const {title,blog} =req.body;
-    // try{
-    //     const newBlog = new Blog({
-    //         title,
-    //         blog,
-    //         owner
-    //     })
-    //     await newBlog.save();
-    //     res.status(200).send({msg:'Blog created successfully',newBlog})
-    // }catch(err){
-    //     res.status(500).send({msg:err.message})
-    // }
+
+    const owner =req.user.id;
+    const {title,blog} =req.body;
+    try{
+        const newBlog = new Blog({
+            title,
+            blog,
+            owner
+        })
+        await newBlog.save();
+        res.status(200).send({msg:'Blog created successfully',newBlog})
+    }catch(err){
+        res.status(500).send({msg:err.message})
+    }
 
 }
 
